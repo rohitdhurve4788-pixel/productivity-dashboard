@@ -1,0 +1,694 @@
+:root {
+    --primary: #27374D;
+    --secondary: #90AB8B;
+    --trial1: #F3F4F4;
+    --trial2: #E6D8C3;
+
+}
+
+@font-face {
+    font-family: clash;
+    src: url(./font/ClashGrotesk-Light.otf);
+}
+
+@font-face {
+    font-family: semi-bold;
+    src: url(./font/ClashGrotesk-Semibold.otf);
+}
+
+@font-face {
+    font-family: bold;
+    src: url(./font/ClashGrotesk-Bold.otf);
+}
+
+@font-face {
+    font-family: medium;
+    src: url(./font/ClashGrotesk-Regular.otf);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+html,
+body {
+    height: 100% !important;
+    width: 100%;
+    font-family: monospace;
+    font-family: clash;
+    background-color: var(--secondary);
+    color: var(--trial1);
+
+}
+
+.main {
+   min-height: 100%;
+    width: 100%;
+    /* background-color: var(--secondary); */
+    /* overflow: hidden; */
+
+}
+
+
+section.all-elems {
+    height: 100%;
+    width: 100%;
+    background-color: var(--secondary);
+    padding: 40px;
+
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-start;
+    gap: 30px;
+    overflow: hidden;
+    transition: all 0.5s ease;
+    position: absolute;
+}
+
+.all-elems .all-tasks {
+    height: 100%;
+    display: flex;
+    flex-wrap: nowrap;
+    align-items: flex-start;
+    gap: 30px;
+    overflow: hidden;
+}
+
+.all-elems header {
+    height: 52% !important;
+    width: 100%;
+    background-image: url(https://images.unsplash.com/photo-1611688524744-dfad48cce755?q=80&w=1411&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    border-radius: 15px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 20px 25px;
+}
+
+header .part1 h2 {
+    margin-top: 20px;
+    font-size: 120px;
+}
+
+header .part1 h3 {
+    font-size: 30px;
+}
+
+header .part1 h4 {
+    margin-top: 20px;
+    font-size: 45px;
+}
+
+header .part2 h3 {
+    font-size: 80px;
+    font-weight: 800;
+    margin-bottom: 10px;
+}
+
+header .part2 h5 {
+    margin-bottom: 5px;
+    font-size: 25px;
+}
+
+.elems {
+    height: 400px !important;
+    box-shadow: 10px 5px 10px #585151;
+    width: 320px;
+    /* background-color: rgb(29, 29, 79); */
+    font-size: 32px;
+    position: relative;
+    border-radius: 50px;
+    cursor: pointer;
+}
+
+.elems:active {
+    scale: 0.98;
+}
+
+.elems h2 {
+    position: absolute;
+    bottom: 2%;
+    right: 5%;
+    font-family: semi-bold;
+    /* font-size: 30px; */
+}
+
+.todoh2 {
+    color: rgb(21, 5, 5);
+}
+
+.elems img {
+    border-radius: 20px;
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+}
+
+.full-elem {
+    height: 100% !important;
+    width: 100%;
+    overflow: hidden;
+    background-color: var(--secondary);
+    font-size: 50px;
+    padding-top: 15px;
+    padding-left: 20px;
+    padding-right: 20px;
+    display: none;
+    position: absolute;
+}
+
+.close {
+    position: absolute;
+    right: 5%;
+    background: #ff0000;
+    padding: 25px 45px;
+    border-radius: 20px;
+    font-size: 25px;
+    font-weight: 600;
+    border: none;
+    color: white;
+    cursor: pointer;
+    margin-top: 20px;
+}
+
+.close:active {
+    scale: 0.98;
+}
+
+.todo-list-cont h2 {
+    font-size: 60px;
+    font-family: semi-bold;
+    margin-top: 50px;
+    /* margi-/ */
+}
+
+
+.todo-list-cont .todo-list-contianer {
+    margin-top: 50px;
+    height: 70% !important;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.todo-list-cont .todo-list-contianer .addtask {
+    height: 100% !important;
+    width: 35%;
+    background-color: #778774;
+    border-radius: 20px;
+
+}
+
+.todo-list-cont .todo-list-contianer .fulltask {
+    height: 100%;
+    overflow: auto;
+    width: 63%;
+    background-color: #778774;
+    border-radius: 20px;
+    padding: 20px 15px;
+
+}
+
+.todo-list-cont .todo-list-contianer .addtask form {
+    padding: 20px 15px;
+    display: flex;
+    flex-direction: column;
+    padding: 30px;
+
+}
+
+.todo-list-contianer .addtask form input {
+    padding: 20px 14px;
+    font-size: 25px;
+    font-size: 25px;
+    border-radius: 15px;
+    color: #050303;
+    border: none;
+    outline-style: none;
+     background-color:   var(--trial1);;
+}
+
+.todo-list-contianer .addtask form textarea {
+    margin-top: 20px;
+    padding: 20px 14px;
+    height: 350px;
+    font-size: 25px;
+    border-radius: 15px;
+    color: #050303;
+    border: none;
+    outline-style: none;
+    background-color: #ffffff;
+    margin-bottom: 10px;
+}
+
+.todo-list-contianer .addtask form button {
+    margin-top: 20px;
+    padding: 20px 14px;
+    font-size: 25px;
+    border-radius: 15px;
+    border: none;
+    font-weight: 600;
+    outline-style: none;
+    background: #06fe2784;
+    transition: all ease 0.3s;
+}
+
+.addtask form button:active {
+    scale: 0.98;
+}
+
+
+.checkbox {
+    display: flex;
+    align-items: flex-start;
+    font-size: 25px;
+    gap: 10px;
+}
+
+input[type="checkbox" i] {
+    scale: 2;
+    margin-top: 10px;
+}
+
+
+
+.task {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    padding: 20px 15px;
+    background-color: #fafff8;
+    border-radius: 15px;
+    margin-bottom: 10px;
+}
+
+.task h4 {
+    color: #383434;
+    font-size: 30px;
+    font-family: semi-bold;
+    display: flex;
+    align-items: flex-start;
+    gap: 15px;
+}
+
+.task h4 span {
+    align-items: flex-start;
+    color: #ffffff;
+    background-color: #ff0000;
+    font-size: 15px;
+    font-family: semi-bold;
+    border-radius: 50px;
+    padding: 4px 5px;
+}
+
+.task h4 span.true {
+    opacity: 1;
+}
+
+.task h4 span.false {
+    opacity: 0;
+}
+
+.task button {
+    padding: 16px 25px 16px 25px;
+    background-color: rgb(240, 88, 7);
+    font-size: 22px;
+    font-weight: 700;
+    color: white;
+    border-radius: 5px;
+    outline: none;
+    border: none;
+    transition: 0.3s ease;
+
+}
+
+.task button:active {
+    scale: 0.9;
+}
+
+
+
+
+.daily-plan-cont h2 {
+    font-size: 60px;
+    font-family: semi-bold;
+    margin-top: 50px;
+}
+
+.daily-plan-cont .day-planner {
+    background-color: #778774;
+    height: 80%;
+    width: 100%;
+    margin-top: 20px;
+    border-radius: 10px;
+    padding: 25px;
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    overflow: auto;
+}
+
+.daily-plan-cont .day-planner .day-planner-time {
+    /* background-color: yellow; */
+    display: flex;
+    align-items: center;
+    position: relative;
+    width: 49%;
+    margin-bottom: 15px;
+
+}
+
+.day-planner .day-planner-time input {
+    width: 100%;
+    padding: 30px 25px;
+    background-color: #525050;
+    border-radius: 5px;
+    border: none;
+    outline: none;
+    font-size: 25px;
+    color: white;
+    padding-top: 40px;
+
+
+}
+
+.day-planner .day-planner-time p {
+    position: absolute;
+    top: 5%;
+    left: 2%;
+    font-size: 25px;
+}
+
+
+/*  */
+.maotiation-flex-contianer {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.color {
+    height: 80%;
+    width: 60%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
+    z-index: 1;
+    background: rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(15px);
+    border-radius: 20px;
+    overflow: hidden;
+    border: 2px solid black;
+}
+
+.color::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: rgb(243, 150, 0);
+    filter: blur(60px);
+    z-index: -1;
+}
+
+.motivational-contianer {
+
+    height: 90%;
+
+    width: 80%;
+    background: #DDE5D0;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border-radius: 20px;
+    z-index: 3;
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.2);
+    border: 3px solid black;
+
+}
+
+.motivational-contianer .content {
+    padding: 20px 20px;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: 25px;
+}
+
+.content h3 {
+    color: #2F3E34;
+    margin-top: 15px;
+    font-weight: 900;
+}
+
+.content p {
+    color: #3A4F41;
+    text-align: center;
+    font-family: medium;
+    font-size: 1.9rem;
+    line-height: 1.6;
+    font-weight: 900;
+    width: 100%;
+    white-space: normal;
+    word-wrap: break-word;
+
+}
+
+.content2 {
+    position: absolute;
+    bottom: 0;
+    right: 3%;
+    font-size: 1.9rem;
+    color: #2F3E34;
+
+}
+
+.content2 h5:first-child {
+    font-style: italic;
+    opacity: 0.6;
+    font-size: 1rem;
+    letter-spacing: 1px;
+}
+
+.content2 h5:last-child {
+    font-weight: 900;
+    font-style: italic;
+}
+
+.motivational-contianer {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    cursor: pointer;
+}
+
+.motivational-contianer:hover {
+    transform: translate(-50%, -52%) scale(1.03);
+    box-shadow: 0 25px 60px rgba(0, 0, 0, 0.3);
+}
+
+.motivational-contianer img {
+    position: absolute;
+    right: 2%;
+    top: 5%;
+    opacity: 0.4;
+}
+
+.pomo-cont {
+    background-image: url(https://i.pinimg.com/originals/09/ac/47/09ac47c0c8d14e4cf27198e9e3b355bf.gif);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 100vh;
+    width: 100vw;
+    /* position: relative; */
+}
+
+
+.pomo-cont .pomo-timer {
+    position: absolute;
+    top: 49%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+}
+
+.pomo-timer h1 {
+    font-size: 12rem;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.pomo-timer .start {
+    padding: 25px 50px;
+    border-radius: 30px;
+    font-size: 25px;
+    font-weight: 700;
+    background-color: white;
+    border: none;
+    border: 1px solid rgb(0, 0, 0);
+    color: #000000;
+    transition: 0.1s ease-in-out;
+}
+
+.pomo-timer .start:hover {
+    background-color: transparent;
+}
+
+.pomo-timer .start:active {
+    scale: 0.96;
+}
+
+.pomo-timer .pause {
+    padding: 25px 50px;
+    border-radius: 30px;
+    font-size: 25px;
+    font-weight: 700;
+    background-color: white;
+    border: none;
+    border: 1px solid rgb(0, 0, 0);
+    color: #000000;
+    transition: 0.1s ease-in-out;
+
+}
+
+.pomo-timer .pause:hover {
+    background-color: transparent;
+}
+
+.pomo-timer .pause:active {
+    scale: 0.96;
+}
+
+.pomo-timer .end {
+
+    padding: 25px 50px;
+    border-radius: 30px;
+    font-size: 25px;
+    font-weight: 700;
+    background-color: white;
+    border: none;
+    border: 1px solid rgb(0, 0, 0);
+    color: #000000;
+    transition: 0.1s ease-in-out;
+}
+
+.pomo-timer .end:hover {
+    background-color: transparent;
+}
+
+.pomo-timer .end:active {
+    scale: 0.96;
+}
+
+.pomo-cont .work {
+    position: absolute;
+    top: 20%;
+    left: 50%;
+    transform: translate(-50%);
+}
+
+.work h4 {
+    /* background-color: rgba(226, 101, 18, 0.67); */
+    border-radius: 20px;
+    padding: 20px 25px;
+    margin-bottom: 20px;
+    font-size: 35px;
+}
+
+
+
+.daily-cont {
+    padding: 40px 20px;
+
+}
+
+.container {
+    height: 80vh;
+    width: 60vw;
+    background: #fff;
+    border-radius: 20px;
+    padding: 20px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+
+    min-width: 320px;
+}
+
+.container h2 {
+    text-align: center;
+    margin-bottom: 15px;
+    color: #000000;
+    flex-shrink: 0;
+}
+
+.input-box {
+    display: flex;
+    gap: 10px;
+    flex-shrink: 0;
+}
+
+.input-box input {
+    flex: 1;
+    padding: 25px 20px;
+    border-radius: 10px;
+    font-size: 20px;
+    flex-shrink: 0;
+
+    border: 1px solid #ccc;
+}
+
+.input-box button {
+    padding: 20px 15px;
+    border: none;
+    background: #667eea;
+    color: #fff;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+ul {
+    list-style: none;
+    margin-top: 20px;
+    max-height: 300px;
+    overflow-y: auto;
+
+}
+
+li {
+    background: #f3f3f3;
+    padding: 10px;
+    border-radius: 10px;
+    margin-bottom: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+li.completed {
+    text-decoration: line-through;
+    opacity: 0.6;
+}
+
+.actions button {
+    border: none;
+    background: transparent;
+    cursor: pointer;
+    margin-left: 10px;
+}
+
