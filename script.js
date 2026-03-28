@@ -285,11 +285,10 @@ const city='umarga'
 let data=null
 
 async function weatherapicalling(){
-    let res= await fetch(` http://api.weatherapi.com/v1/current.json?key=${key_api}&q=${city} `)
+    let res= await fetch(` https://api.weatherapi.com/v1/current.json?key=${key_api}&q=${city} `)
 
     let data= await res.json()
 
-    console.log(data.current.wind_kph);
     part2h3.innerHTML=`${data.current.temp_c}°C`
     part2h5[0].innerHTML=`Feels like: ${data.current.feelslike_c} °C`
     part2h5[1].innerHTML=`Humidity: ${data.current.humidity} %`
